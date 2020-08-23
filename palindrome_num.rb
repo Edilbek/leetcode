@@ -1,5 +1,5 @@
-def is_palindrome(x)
+def palindrome?(x)
   x.to_s == x.to_s.reverse
 end
 
-p is_palindrome(1000021)
+p palindrome?(1_000_021)
