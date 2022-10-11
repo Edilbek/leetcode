@@ -1,23 +1,17 @@
 # @param {Integer} n
 # @return {String}
 def thousand_separator(n)
-    n = n.to_i
-    n.to_s if n < 1000
-    res = []
-    str = ''
-    while n > 1000
-        tmp = n % 1000
-        n /= 1000
-        res << tmp
-    end
+  tmp_n = n.to_i
+  res = ''
+  i = 0
 
-    res << n if n < 1000
-    
-    res.reverse.each_with_index do |v, i|
-        str += res[i + 1].nil? ? v.to_s : "#{v}."
-    end
+  while tmp_n < 1000
+    res += tmp_n / 100
+    tmp_n /= 10
+    i += 1
+  end
 
-    str
+  res
 end
 
-p thousand_separator('51040')
+p thousand_separator('123456789')
